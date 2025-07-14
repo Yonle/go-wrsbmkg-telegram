@@ -128,10 +128,6 @@ listener:
 				continue listener
 			}
 
-			if !checkFilter(gempa.Area) { // if it didn't get pass
-				continue listener
-			}
-
 			msg := fmt.Sprintf(
 				"*%s*\n\n%s\n\n%s\n\n%s\n\n%s\n",
 				gempa.Subject,
