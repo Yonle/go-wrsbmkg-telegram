@@ -8,6 +8,8 @@ import (
 	"time"
 )
 
+var mu sync.Mutex
+
 /**
  * A simple file-based memory to keep track of sent messages with
  * the help of filesystem. Remember the ID, check if the file exists
@@ -19,7 +21,7 @@ import (
  * @return		true if the message should be sent
  *			false if it should be skipped.
  */
-func IsNewMessage(m *sync.Mutex, id string) bool {
+func IsNewMessage(id string) bool {
 	/*
 	 * Always send the message if the memory directory is not set.
 	 */
@@ -29,8 +31,8 @@ func IsNewMessage(m *sync.Mutex, id string) bool {
 
 	fpath := fmt.Sprintf("%s/%x", config.MsgMemoryDir, id)
 
-	m.Lock()
-	defer m.Unlock()
+	mu.Lock()
+	defer mu.Unlock()
 	/*
 	 * If the file exists, skip the message. We've already sent it.
 	 */
@@ -57,9 +59,9 @@ func IsNewMessage(m *sync.Mutex, id string) bool {
 	return true
 }
 
-func ScanAndDeleteOldMessages(m *sync.Mutex) {
-	m.Lock()
-	defer m.Unlock()
+func ScanAndDeleteOldMessages() {
+	mu.Lock()
+	defer mu.Unlock()
 	files, err := os.ReadDir(config.MsgMemoryDir)
 	if err != nil {
 		log.Printf("Failed to read message memory directory: %s", err)
@@ -86,11 +88,10 @@ func ScanAndDeleteOldMessages(m *sync.Mutex) {
 	}
 }
 
-func MemDirHouseKeeping(m *sync.Mutex) {
-	for {
+func MemDirHouseKeeping() {
+	for range time.Tick(3 * time.Hour) {
 		log.Println("wrs: Starting message memdir housekeeping")
-		ScanAndDeleteOldMessages(m)
+		ScanAndDeleteOldMessages()
 		log.Println("wrs: Finished message memdir housekeeping, will be back in 3 hours")
-		time.Sleep(3 * time.Hour)
 	}
 }

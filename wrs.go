@@ -33,7 +33,18 @@ listener:
 				continue listener
 			}
 
-			if !IsNewMessage(&mu, gempa.Identifier) {
+			go func() {
+				teksNarasi, err := p.FetchNarasi(ctx, gempa.EventID, time.Now().Add(time.Hour))
+				if err != nil {
+					return
+				}
+
+				if IsNewMessage(gempa.EventID + "-Narasi") {
+					narasi <- teksNarasi
+				}
+			}()
+
+			if !IsNewMessage(gempa.Identifier) {
 				continue listener
 			}
 
@@ -48,15 +59,6 @@ listener:
 
 			log.Printf("wrs: Got event ID: %s", gempa.EventID)
 			log.Printf(gempa.Headline)
-
-			go func() {
-				teksNarasi, err := p.FetchNarasi(ctx, gempa.EventID, time.Now().Add(time.Hour))
-				if err != nil {
-					return
-				}
-
-				narasi <- teksNarasi
-			}()
 
 			// send headline first. As the shakemap isn't really ready at the time of the incident.
 			if _, err := b.SendMessage(ctx, &bot.SendMessageParams{
@@ -113,7 +115,7 @@ listener:
 				continue listener
 			}
 
-			if !IsNewMessage(&mu, realtime.Time) {
+			if !IsNewMessage(realtime.Time) {
 				continue listener
 			}
 
