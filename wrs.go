@@ -18,6 +18,7 @@ import (
 
 var WIB = time.FixedZone("WIB", +7*60*60)
 var currentEventID string
+var expectNarasi bool
 
 /**
  * A simple file-based memory to keep track of sent messages with
@@ -125,8 +126,11 @@ listener:
 			currentEventID = gempa.EventID
 
 			if config.MinMag >= gempa.Magnitude {
+				expectNarasi = false
 				continue listener
 			}
+
+			expectNarasi = true
 
 			msg := fmt.Sprintf(
 				"*%s*\n\n%s\n\n%s\n\n%s\n\n%s\n",
@@ -261,6 +265,10 @@ listener:
 				continue listener
 			}
 		case n := <-p.Narasi:
+			if !expectNarasi {
+				continue listener
+			}
+
 			narasi := helper.CleanNarasi(n)
 			log.Println("wrs: Got narasi")
 
