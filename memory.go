@@ -37,7 +37,7 @@ func IsNewMessage(id string) bool {
 	 * If the file exists, skip the message. We've already sent it.
 	 */
 	if _, err := os.Stat(fpath); err == nil {
-		log.Printf("wrs: Skipping message, already sent: %x", id)
+		log.Printf("wrs: Skipping message, already sent: %s", id)
 		return false
 	}
 
