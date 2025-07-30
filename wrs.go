@@ -87,7 +87,7 @@ listener:
 			if len(zonaObservasiText) > 0 {
 				headerText := "*TELAH TERJADI GEMPABUMI BERPOTENSI TSUNAMI*\n\n"
 				headerText += fmt.Sprintf(
-					"Gempa terjadi pada *%s*, Pukul *%s*, berkekuatan *M%.2f*, dengan kedalaman *%s* pada jarak *%s*\n",
+					"Gempa terjadi pada *%s*, Pukul *%s*, berkekuatan *M%.1f*, dengan kedalaman *%s* pada jarak *%s*\n",
 					gempa.Date, gempa.Time, gempa.Magnitude, gempa.Depth, gempa.Area,
 				)
 

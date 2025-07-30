@@ -41,12 +41,32 @@ func sendPhoto(ctx context.Context, b *bot.Bot, path string, caption string) {
 			Data:     resp.Body,
 		}
 
-		if _, err := b.SendPhoto(ctx, &bot.SendPhotoParams{
+		sendPhotoP := bot.SendPhotoParams{
 			ChatID:    config.ChatID,
 			Photo:     &photo,
 			Caption:   caption,
 			ParseMode: models.ParseModeMarkdownV1,
-		}); err != nil {
+		}
+
+		if len(caption) > 1024 {
+			sendPhotoP.Caption = ""
+			m, err := b.SendMessage(ctx, &bot.SendMessageParams{
+				ChatID:    config.ChatID,
+				Text:      caption,
+				ParseMode: models.ParseModeMarkdownV1,
+			})
+
+			if err != nil {
+				log.Printf("sendMessage: bot: Failed to send message. Retrying in 15s....: %s", err)
+				time.Sleep(time.Second * 15)
+				continue
+			}
+
+			replyP := models.ReplyParameters{MessageID: m.ID}
+			sendPhotoP.ReplyParameters = &replyP
+		}
+
+		if _, err := b.SendPhoto(ctx, &sendPhotoP); err != nil {
 			log.Printf("sendPhoto(%s): bot: Failed to send photo. Retrying in 15s....: %s", path, err)
 			time.Sleep(time.Second * 15)
 			continue
