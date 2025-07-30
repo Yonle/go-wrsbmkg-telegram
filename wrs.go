@@ -75,6 +75,36 @@ listener:
 			go sendPhoto(ctx, b, gempa.TTMap, "")
 			go sendPhoto(ctx, b, gempa.SSHMap, "")
 
+			var zonaObservasiText string
+
+			for _, area := range gempa.ObsAreas {
+				zonaObservasiText += fmt.Sprintf(
+					"- *%s* (%s %s) dengan ketinggian *%s Meter* pada tanggal *%s* pukul *%s*\n",
+					area.Location, area.Latitude, area.Longitude, area.Height, area.Date, area.Time,
+				)
+			}
+
+			if len(zonaObservasiText) > 0 {
+				headerText := "*TELAH TERJADI GEMPABUMI BERPOTENSI TSUNAMI*\n\n"
+				headerText += fmt.Sprintf(
+					"Gempa terjadi pada *%s*, Pukul *%s*, berkekuatan *M%.2f*, dengan kedalaman *%s* pada jarak *%s*\n",
+					gempa.Date, gempa.Time, gempa.Magnitude, gempa.Depth, gempa.Area,
+				)
+
+				zonaObservasiText = headerText + "\n" + zonaObservasiText
+
+				fmt.Println("\n---\n" + zonaObservasiText)
+
+				if _, err := b.SendMessage(ctx, &bot.SendMessageParams{
+					ChatID:    config.ChatID,
+					Text:      zonaObservasiText,
+					ParseMode: models.ParseModeMarkdownV1,
+				}); err != nil {
+					log.Printf("bot: Failed to send zonaObservasiText: %s", err)
+				}
+
+			}
+
 			var zonaPeringatanText string
 
 			for _, area := range gempa.WZAreas {
