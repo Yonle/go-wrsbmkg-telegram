@@ -91,6 +91,8 @@ listener:
 					gempa.Date, gempa.Time, gempa.Magnitude, gempa.Depth, gempa.Area,
 				)
 
+				headerText += "\nBerdasarkan pengamatan muka air laut, tsunami telah terdeteksi di wilayah berikut:"
+
 				zonaObservasiText = headerText + "\n" + zonaObservasiText
 
 				fmt.Println("\n---\n" + zonaObservasiText)
@@ -109,7 +111,7 @@ listener:
 
 			for _, area := range gempa.WZAreas {
 				zonaPeringatanText += fmt.Sprintf(
-					"- %s: %s, %s (estimasi waktu tiba: %s %s)\n",
+					"- *%s*: *%s, %s* (estimasi waktu tiba: *%s %s*)\n",
 					area.Level,
 					area.Province,
 					area.District,
@@ -120,13 +122,13 @@ listener:
 
 			if len(zonaPeringatanText) > 0 {
 				zonaPeringatanText += fmt.Sprintf(
-					"\n*Instruksi*\n1. %s\n2. %s\n3. %s",
+					"\n*Saran dan Arahan Status Peringatan*\n1. %s\n2. %s\n3. %s",
 					gempa.Instruction1,
 					gempa.Instruction2,
 					gempa.Instruction3,
 				)
 
-				zonaPeringatanText = "*Zona-Zona Peringatan*\n" + zonaPeringatanText
+				zonaPeringatanText = "Daerah yang berpotensi tsunami berdasarkan pemodelan:\n" + zonaPeringatanText
 
 				fmt.Println(zonaPeringatanText)
 
