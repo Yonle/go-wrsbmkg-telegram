@@ -6,16 +6,31 @@ CHAT_ID:
 # Each entry of FILTER_REGIONS is case insensitive.
 
 # Uncomment the following to enable the filter
-#MIN_MAG: 0.00
-#FILTER_REGIONS:
-#- Indonesia
-#- Sulawesi
-#- Savu
-#- Banda
-#- Flores
-#- Papua
-#- Molucca
-#- Timor
+#MIN_MAG: 0.00 # Global min mag
+
+# Uncommenting the following will make the bot to only report
+# Earthquakes from the following areas & parameters.
+#
+# Note: MIN_MAG is still applied.
+#
+#REGIONS_FILTER:
+#  - Coordinates: # Jakarta
+#      Latitude: -6.200000
+#      Longitude: 106.816666
+#    MaxDistance: 100000
+#    MinMagnitude: 2.0
+#  - Coordinates: # Jakarta - Ocean
+#      Latitude: -6.200000
+#      Longitude: 106.816666
+#    MaxDistance: 120000
+#    MinMagnitude: 4.0
+#
+#  - Coordinates: # Bogor - Land
+#      Latitude: -6.595038
+#      Longitude: 106.816635
+#    MaxDistance: 30000
+#    MinMagnitude: 3.5
+# ...
 
 # Optional, a directory to save sent messages.
 #

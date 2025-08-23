@@ -1,23 +1,43 @@
 package main
 
-import "strings"
+import (
+	"math"
+)
 
-func checkFilter(s string) (pass bool) {
-	if len(config.FilterRegions) == 0 { // if user didn't set filter...
-		pass = true
-		return
+func checkFilter(lat, lon, mag float64) (pass bool) {
+	if len(config.RegionsFilter) == 0 {
+		return true
 	}
 
-	s = strings.ToLower(s)
+	for _, region := range config.RegionsFilter {
+		dist := calcCrow(
+			region.Coords.Latitude,
+			region.Coords.Longitude,
+			lat, lon,
+		)
 
-	pass = false // we do not give it a pass until one of the filter is on the list
-
-	for _, f := range config.FilterRegions {
-		if strings.Contains(s, f) {
-			pass = true
-			return
+		if dist < region.MaxDistance {
+			continue
 		}
-	}
 
+		if mag < region.MinMagnitude {
+			continue
+		}
+
+		pass = true
+		break
+	}
 	return
+}
+
+func calcCrow(lat1, lon1, lat2, lon2 float64) float64 {
+	R := 6371000.0
+	rad := math.Pi / 180.0
+	dLat := (lat2 - lat1) * rad
+	dLon := (lon2 - lon1) * rad
+	lat1 = lat1 * rad
+	lat2 = lat2 * rad
+	a := math.Pow(math.Sin(dLat/2), 2) +
+		math.Cos(lat1)*math.Cos(lat2)*math.Pow(math.Sin(dLon/2), 2)
+	return R * 2.0 * math.Atan2(math.Sqrt(a), math.Sqrt(1-a))
 }

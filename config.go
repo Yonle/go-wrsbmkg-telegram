@@ -3,17 +3,26 @@ package main
 import (
 	"fmt"
 	"os"
-	"strings"
 
 	"github.com/goccy/go-yaml"
 )
 
+type RegionFilter struct {
+	Coords struct {
+		Latitude  float64 `yaml:"Latitude"`
+		Longitude float64 `yaml:"Longitude"`
+	} `yaml:"Coordinates"`
+	MaxDistance  float64 `yaml:"MaxDistance"`
+	MinMagnitude float64 `yaml:"MinMagnitude"`
+	Ignore       bool    `yaml:"Ignore"`
+}
+
 var config struct {
-	Token         string   `yaml:"BOT_TOKEN"`
-	ChatID        int      `yaml:"CHAT_ID"`
-	MinMag        float64  `yaml:"MIN_MAG"`
-	FilterRegions []string `yaml:"FILTER_REGIONS"`
-	MsgMemoryDir  string   `yaml:"MSG_MEMORY_DIR"`
+	Token         string         `yaml:"BOT_TOKEN"`
+	ChatID        int            `yaml:"CHAT_ID"`
+	MinMag        float64        `yaml:"MIN_MAG"`
+	RegionsFilter []RegionFilter `yaml:"REGIONS_FILTER"`
+	MsgMemoryDir  string         `yaml:"MSG_MEMORY_DIR"`
 }
 
 func ReadConfig(filename string) {
@@ -28,11 +37,5 @@ func ReadConfig(filename string) {
 
 	if err := yaml.Unmarshal(data, &config); err != nil {
 		panic(fmt.Sprintf("error when parsing %s: %s", filename, err))
-	}
-
-	if len(config.FilterRegions) > 0 {
-		for i, w := range config.FilterRegions {
-			config.FilterRegions[i] = strings.ToLower(w)
-		}
 	}
 }

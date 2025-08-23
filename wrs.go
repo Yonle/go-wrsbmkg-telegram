@@ -33,6 +33,10 @@ listener:
 				continue listener
 			}
 
+			if !checkFilter(gempa.Coordinates[0], gempa.Coordinates[1], gempa.Magnitude) {
+				continue listener
+			}
+
 			go func() {
 				teksNarasi, err := p.FetchNarasi(ctx, gempa.EventID, time.Now().Add(48*time.Hour))
 				if err != nil {
@@ -151,7 +155,10 @@ listener:
 				continue listener
 			}
 
-			if !checkFilter(realtime.Place) {
+			lat, _ := strconv.ParseFloat(realtime.Coordinates[1].(string), 64)
+			long, _ := strconv.ParseFloat(realtime.Coordinates[0].(string), 64)
+
+			if !checkFilter(lat, long, realtime.Magnitude) {
 				continue listener
 			}
 
@@ -178,10 +185,6 @@ listener:
 			)
 
 			log.Printf("wrs: Got realtime info: M%.1f %s", realtime.Magnitude, realtime.Place)
-
-			lat, _ := strconv.ParseFloat(realtime.Coordinates[1].(string), 64)
-			long, _ := strconv.ParseFloat(realtime.Coordinates[0].(string), 64)
-
 			venueTitle := fmt.Sprintf("M%.1f, %s %s", realtime.Magnitude, date, ft)
 
 			m, err := b.SendVenue(ctx, &bot.SendVenueParams{

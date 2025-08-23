@@ -1,0 +1,639 @@
+---
+BOT_TOKEN:
+CHAT_ID:
+
+# Below is for filtering. It's optional.
+# Each entry of FILTER_REGIONS is case insensitive.
+
+# Uncomment the following to enable the filter
+#MIN_MAG: 0.00 # Global min mag
+
+# Uncommenting the following will make the bot to only report
+# Earthquakes from the following areas & parameters.
+#
+# Note: MIN_MAG is still applied.
+#
+REGIONS_FILTER:
+  - Coordinates: # Jakarta - Land
+      Latitude: -6.200000
+      Longitude: 106.816666
+    MaxDistance: 50000
+    MinMagnitude: 3.5
+  - Coordinates: # Jakarta - Ocean
+      Latitude: -6.200000
+      Longitude: 106.816666
+    MaxDistance: 120000
+    MinMagnitude: 4.0
+
+  - Coordinates: # Bogor - Land
+      Latitude: -6.595038
+      Longitude: 106.816635
+    MaxDistance: 30000
+    MinMagnitude: 3.5
+  - Coordinates: # Bogor - Ocean
+      Latitude: -6.595038
+      Longitude: 106.816635
+    MaxDistance: 100000
+    MinMagnitude: 4.0
+
+  - Coordinates: # Bandung - Land
+      Latitude: -6.914744
+      Longitude: 107.609810
+    MaxDistance: 40000
+    MinMagnitude: 4.0
+  - Coordinates: # Bandung - Ocean
+      Latitude: -6.914744
+      Longitude: 107.609810
+    MaxDistance: 100000
+    MinMagnitude: 4.5
+
+  - Coordinates: # Cirebon - Land
+      Latitude: -6.718600
+      Longitude: 108.566600
+    MaxDistance: 40000
+    MinMagnitude: 3.5
+  - Coordinates: # Cirebon - Ocean
+      Latitude: -6.718600
+      Longitude: 108.566600
+    MaxDistance: 100000
+    MinMagnitude: 4.0
+
+  - Coordinates: # Semarang - Land
+      Latitude: -6.966667
+      Longitude: 110.416664
+    MaxDistance: 50000
+    MinMagnitude: 3.5
+  - Coordinates: # Semarang - Ocean
+      Latitude: -6.966667
+      Longitude: 110.416664
+    MaxDistance: 120000
+    MinMagnitude: 4.0
+
+  - Coordinates: # Pekalongan - Land
+      Latitude: -6.889400
+      Longitude: 109.668100
+    MaxDistance: 40000
+    MinMagnitude: 3.5
+  - Coordinates: # Pekalongan - Ocean
+      Latitude: -6.889400
+      Longitude: 109.668100
+    MaxDistance: 100000
+    MinMagnitude: 4.0
+
+  - Coordinates: # Yogyakarta - Land
+      Latitude: -7.795580
+      Longitude: 110.369490
+    MaxDistance: 40000
+    MinMagnitude: 4.0
+  - Coordinates: # Yogyakarta - Ocean
+      Latitude: -7.795580
+      Longitude: 110.369490
+    MaxDistance: 100000
+    MinMagnitude: 4.5
+
+  - Coordinates: # Solo (Surakarta) - Land
+      Latitude: -7.565580
+      Longitude: 110.831422
+    MaxDistance: 40000
+    MinMagnitude: 4.0
+  - Coordinates: # Solo (Surakarta) - Ocean
+      Latitude: -7.565580
+      Longitude: 110.831422
+    MaxDistance: 90000
+    MinMagnitude: 4.5
+
+  - Coordinates: # Malang - Land
+      Latitude: -7.983908
+      Longitude: 112.621391
+    MaxDistance: 40000
+    MinMagnitude: 4.0
+  - Coordinates: # Malang - Ocean
+      Latitude: -7.983908
+      Longitude: 112.621391
+    MaxDistance: 100000
+    MinMagnitude: 4.5
+
+  - Coordinates: # Surabaya - Land
+      Latitude: -7.257472
+      Longitude: 112.752088
+    MaxDistance: 50000
+    MinMagnitude: 3.5
+  - Coordinates: # Surabaya - Ocean
+      Latitude: -7.257472
+      Longitude: 112.752088
+    MaxDistance: 120000
+    MinMagnitude: 4.0
+
+  - Coordinates: # Banyuwangi - Land
+      Latitude: -8.219700
+      Longitude: 114.369600
+    MaxDistance: 40000
+    MinMagnitude: 4.0
+  - Coordinates: # Banyuwangi - Ocean
+      Latitude: -8.219700
+      Longitude: 114.369600
+    MaxDistance: 100000
+    MinMagnitude: 4.5
+
+  - Coordinates: # Cilegon - Land
+      Latitude: -6.004100
+      Longitude: 106.016400
+    MaxDistance: 30000
+    MinMagnitude: 3.5
+  - Coordinates: # Cilegon - Ocean
+      Latitude: -6.004100
+      Longitude: 106.016400
+    MaxDistance: 100000
+    MinMagnitude: 4.0i
+
+  - Coordinates: # Serang - Land
+      Latitude: -6.120000
+      Longitude: 106.150000
+    MaxDistance: 30000
+    MinMagnitude: 3.5
+  - Coordinates: # Serang - Ocean
+      Latitude: -6.120000
+      Longitude: 106.150000
+    MaxDistance: 100000
+    MinMagnitude: 4.0
+
+  - Coordinates: # Tangerang - Land
+      Latitude: -6.178300
+      Longitude: 106.631900
+    MaxDistance: 30000
+    MinMagnitude: 3.5
+  - Coordinates: # Tangerang - Ocean
+      Latitude: -6.178300
+      Longitude: 106.631900
+    MaxDistance: 90000
+    MinMagnitude: 4.0
+
+  - Coordinates: # Depok - Land
+      Latitude: -6.402500
+      Longitude: 106.794200
+    MaxDistance: 25000
+    MinMagnitude: 3.5
+  - Coordinates: # Depok - Ocean
+      Latitude: -6.402500
+      Longitude: 106.794200
+    MaxDistance: 90000
+    MinMagnitude: 4.0
+
+  - Coordinates: # Bekasi - Land
+      Latitude: -6.238300
+      Longitude: 106.975600
+    MaxDistance: 30000
+    MinMagnitude: 3.5
+  - Coordinates: # Bekasi - Ocean
+      Latitude: -6.238300
+      Longitude: 106.975600
+    MaxDistance: 90000
+    MinMagnitude: 4.0
+
+  - Coordinates: # Karawang - Land
+      Latitude: -6.303300
+      Longitude: 107.337600
+    MaxDistance: 35000
+    MinMagnitude: 3.5
+  - Coordinates: # Karawang - Ocean
+      Latitude: -6.303300
+      Longitude: 107.337600
+    MaxDistance: 90000
+    MinMagnitude: 4.0
+
+  - Coordinates: # Purwakarta - Land
+      Latitude: -6.556900
+      Longitude: 107.438500
+    MaxDistance: 30000
+    MinMagnitude: 3.5
+  - Coordinates: # Purwakarta - Ocean
+      Latitude: -6.556900
+      Longitude: 107.438500
+    MaxDistance: 90000
+    MinMagnitude: 4.0
+
+  - Coordinates: # Sukabumi - Land
+      Latitude: -6.927100
+      Longitude: 106.929000
+    MaxDistance: 35000
+    MinMagnitude: 3.5
+  - Coordinates: # Sukabumi - Ocean
+      Latitude: -6.927100
+      Longitude: 106.929000
+    MaxDistance: 110000
+    MinMagnitude: 4.5
+
+  - Coordinates: # Pelabuhan Ratu - Land
+      Latitude: -6.989500
+      Longitude: 106.551900
+    MaxDistance: 30000
+    MinMagnitude: 3.5
+  - Coordinates: # Pelabuhan Ratu - Ocean
+      Latitude: -6.989500
+      Longitude: 106.551900
+    MaxDistance: 130000
+    MinMagnitude: 4.5
+
+  - Coordinates: # Cianjur - Land
+      Latitude: -6.816700
+      Longitude: 107.140000
+    MaxDistance: 30000
+    MinMagnitude: 3.5
+  - Coordinates: # Cianjur - Ocean
+      Latitude: -6.816700
+      Longitude: 107.140000
+    MaxDistance: 100000
+    MinMagnitude: 4.5
+
+  - Coordinates: # Garut - Land
+      Latitude: -7.214600
+      Longitude: 107.900000
+    MaxDistance: 35000
+    MinMagnitude: 4.0
+  - Coordinates: # Garut - Ocean
+      Latitude: -7.214600
+      Longitude: 107.900000
+    MaxDistance: 120000
+    MinMagnitude: 4.5
+
+  - Coordinates: # Tasikmalaya - Land
+      Latitude: -7.327400
+      Longitude: 108.220700
+    MaxDistance: 35000
+    MinMagnitude: 4.0
+  - Coordinates: # Tasikmalaya - Ocean
+      Latitude: -7.327400
+      Longitude: 108.220700
+    MaxDistance: 120000
+    MinMagnitude: 4.5
+
+  - Coordinates: # Ciamis - Land
+      Latitude: -7.325000
+      Longitude: 108.353700
+    MaxDistance: 30000
+    MinMagnitude: 4.0
+  - Coordinates: # Ciamis - Ocean
+      Latitude: -7.325000
+      Longitude: 108.353700
+    MaxDistance: 110000
+    MinMagnitude: 4.5
+
+  - Coordinates: # Indramayu - Land
+      Latitude: -6.336400
+      Longitude: 108.324900
+    MaxDistance: 35000
+    MinMagnitude: 3.5
+  - Coordinates: # Indramayu - Ocean
+      Latitude: -6.336400
+      Longitude: 108.324900
+    MaxDistance: 90000
+    MinMagnitude: 4.0
+
+  - Coordinates: # Tegal - Land
+      Latitude: -6.869400
+      Longitude: 109.140200
+    MaxDistance: 35000
+    MinMagnitude: 3.5
+  - Coordinates: # Tegal - Ocean
+      Latitude: -6.869400
+      Longitude: 109.140200
+    MaxDistance: 100000
+    MinMagnitude: 4.0
+
+  - Coordinates: # Purwokerto - Land
+      Latitude: -7.421400
+      Longitude: 109.234500
+    MaxDistance: 35000
+    MinMagnitude: 4.0
+  - Coordinates: # Purwokerto - Ocean
+      Latitude: -7.421400
+      Longitude: 109.234500
+    MaxDistance: 90000
+    MinMagnitude: 4.5
+
+  - Coordinates: # Cilacap - Land
+      Latitude: -7.721400
+      Longitude: 109.013600
+    MaxDistance: 35000
+    MinMagnitude: 4.0
+  - Coordinates: # Cilacap - Ocean
+      Latitude: -7.721400
+      Longitude: 109.013600
+    MaxDistance: 140000
+    MinMagnitude: 4.5
+
+  - Coordinates: # Kebumen - Land
+      Latitude: -7.679700
+      Longitude: 109.653600
+    MaxDistance: 30000
+    MinMagnitude: 4.0
+  - Coordinates: # Kebumen - Ocean
+      Latitude: -7.679700
+      Longitude: 109.653600
+    MaxDistance: 120000
+    MinMagnitude: 4.5
+
+  - Coordinates: # Purworejo - Land
+      Latitude: -7.713500
+      Longitude: 110.000800
+    MaxDistance: 30000
+    MinMagnitude: 4.0
+  - Coordinates: # Purworejo - Ocean
+      Latitude: -7.713500
+      Longitude: 110.000800
+    MaxDistance: 110000
+    MinMagnitude: 4.5
+
+  - Coordinates: # Magelang - Land
+      Latitude: -7.470500
+      Longitude: 110.217000
+    MaxDistance: 30000
+    MinMagnitude: 4.0
+  - Coordinates: # Magelang - Ocean
+      Latitude: -7.470500
+      Longitude: 110.217000
+    MaxDistance: 90000
+    MinMagnitude: 4.5
+
+  - Coordinates: # Salatiga - Land
+      Latitude: -7.331900
+      Longitude: 110.508400
+    MaxDistance: 25000
+    MinMagnitude: 4.0
+  - Coordinates: # Salatiga - Ocean
+      Latitude: -7.331900
+      Longitude: 110.508400
+    MaxDistance: 90000
+    MinMagnitude: 4.5
+
+  - Coordinates: # Kudus - Land
+      Latitude: -6.804800
+      Longitude: 110.840500
+    MaxDistance: 30000
+    MinMagnitude: 3.5
+  - Coordinates: # Kudus - Ocean
+      Latitude: -6.804800
+      Longitude: 110.840500
+    MaxDistance: 90000
+    MinMagnitude: 4.0
+
+  - Coordinates: # Pati - Land
+      Latitude: -6.751900
+      Longitude: 111.038000
+    MaxDistance: 30000
+    MinMagnitude: 3.5
+  - Coordinates: # Pati - Ocean
+      Latitude: -6.751900
+      Longitude: 111.038000
+    MaxDistance: 90000
+    MinMagnitude: 4.0
+
+  - Coordinates: # Rembang - Land
+      Latitude: -6.706300
+      Longitude: 111.345300
+    MaxDistance: 30000
+    MinMagnitude: 3.5
+  - Coordinates: # Rembang - Ocean
+      Latitude: -6.706300
+      Longitude: 111.345300
+    MaxDistance: 90000
+    MinMagnitude: 4.0
+
+  - Coordinates: # Madiun - Land
+      Latitude: -7.629900
+      Longitude: 111.523100
+    MaxDistance: 35000
+    MinMagnitude: 4.0
+  - Coordinates: # Madiun - Ocean
+      Latitude: -7.629900
+      Longitude: 111.523100
+    MaxDistance: 90000
+    MinMagnitude: 4.5
+
+  - Coordinates: # Kediri - Land
+      Latitude: -7.816600
+      Longitude: 112.011400
+    MaxDistance: 35000
+    MinMagnitude: 4.0
+  - Coordinates: # Kediri - Ocean
+      Latitude: -7.816600
+      Longitude: 112.011400
+    MaxDistance: 100000
+    MinMagnitude: 4.5
+
+  - Coordinates: # Blitar - Land
+      Latitude: -8.098000
+      Longitude: 112.167200
+    MaxDistance: 35000
+    MinMagnitude: 4.0
+  - Coordinates: # Blitar - Ocean
+      Latitude: -8.098000
+      Longitude: 112.167200
+    MaxDistance: 120000
+    MinMagnitude: 4.5
+
+  - Coordinates: # Tulungagung - Land
+      Latitude: -8.065700
+      Longitude: 111.902500
+    MaxDistance: 30000
+    MinMagnitude: 4.0
+  - Coordinates: # Tulungagung - Ocean
+      Latitude: -8.065700
+      Longitude: 111.902500
+    MaxDistance: 120000
+    MinMagnitude: 4.5
+
+  - Coordinates: # Trenggalek - Land
+      Latitude: -8.088300
+      Longitude: 111.708500
+    MaxDistance: 30000
+    MinMagnitude: 4.0
+  - Coordinates: # Trenggalek - Ocean
+      Latitude: -8.088300
+      Longitude: 111.708500
+    MaxDistance: 120000
+    MinMagnitude: 4.5
+
+  - Coordinates: # Pacitan - Land
+      Latitude: -8.204600
+      Longitude: 111.087700
+    MaxDistance: 30000
+    MinMagnitude: 4.0
+  - Coordinates: # Pacitan - Ocean
+      Latitude: -8.204600
+      Longitude: 111.087700
+    MaxDistance: 140000
+    MinMagnitude: 4.5
+
+  - Coordinates: # Mojokerto - Land
+      Latitude: -7.472200
+      Longitude: 112.434500
+    MaxDistance: 30000
+    MinMagnitude: 4.0
+  - Coordinates: # Mojokerto - Ocean
+      Latitude: -7.472200
+      Longitude: 112.434500
+    MaxDistance: 90000
+    MinMagnitude: 4.5
+
+  - Coordinates: # Sidoarjo - Land
+      Latitude: -7.449700
+      Longitude: 112.718300
+    MaxDistance: 25000
+    MinMagnitude: 3.5
+  - Coordinates: # Sidoarjo - Ocean
+      Latitude: -7.449700
+      Longitude: 112.718300
+    MaxDistance: 90000
+    MinMagnitude: 4.0
+
+  - Coordinates: # Pasuruan - Land
+      Latitude: -7.645300
+      Longitude: 112.907500
+    MaxDistance: 30000
+    MinMagnitude: 3.5
+  - Coordinates: # Pasuruan - Ocean
+      Latitude: -7.645300
+      Longitude: 112.907500
+    MaxDistance: 100000
+    MinMagnitude: 4.0
+
+  - Coordinates: # Probolinggo - Land
+      Latitude: -7.754000
+      Longitude: 113.215600
+    MaxDistance: 30000
+    MinMagnitude: 3.5
+  - Coordinates: # Probolinggo - Ocean
+      Latitude: -7.754000
+      Longitude: 113.215600
+    MaxDistance: 110000
+    MinMagnitude: 4.5
+
+  - Coordinates: # Lumajang - Land
+      Latitude: -8.134600
+      Longitude: 113.224800
+    MaxDistance: 30000
+    MinMagnitude: 4.0
+  - Coordinates: # Lumajang - Ocean
+      Latitude: -8.134600
+      Longitude: 113.224800
+    MaxDistance: 110000
+    MinMagnitude: 4.5
+
+  - Coordinates: # Jember - Land
+      Latitude: -8.172400
+      Longitude: 113.699500
+    MaxDistance: 35000
+    MinMagnitude: 4.0
+  - Coordinates: # Jember - Ocean
+      Latitude: -8.172400
+      Longitude: 113.699500
+    MaxDistance: 110000
+    MinMagnitude: 4.5
+
+  - Coordinates: # Situbondo - Land
+      Latitude: -7.706000
+      Longitude: 113.966800
+    MaxDistance: 30000
+    MinMagnitude: 3.5
+  - Coordinates: # Situbondo - Ocean
+      Latitude: -7.706000
+      Longitude: 113.966800
+    MaxDistance: 100000
+    MinMagnitude: 4.0
+
+  - Coordinates: # Bondowoso - Land
+      Latitude: -7.913000
+      Longitude: 113.821300
+    MaxDistance: 30000
+    MinMagnitude: 4.0
+  - Coordinates: # Bondowoso - Ocean
+      Latitude: -7.913000
+      Longitude: 113.821300
+    MaxDistance: 100000
+    MinMagnitude: 4.5
+
+  - Coordinates: # Gresik - Land
+      Latitude: -7.156800
+      Longitude: 112.651300
+    MaxDistance: 25000
+    MinMagnitude: 3.5
+  - Coordinates: # Gresik - Ocean
+      Latitude: -7.156800
+      Longitude: 112.651300
+    MaxDistance: 90000
+    MinMagnitude: 4.0
+
+  - Coordinates: # Lamongan - Land
+      Latitude: -7.124600
+      Longitude: 112.419400
+    MaxDistance: 30000
+    MinMagnitude: 3.5
+  - Coordinates: # Lamongan - Ocean
+      Latitude: -7.124600
+      Longitude: 112.419400
+    MaxDistance: 90000
+    MinMagnitude: 4.0
+
+  - Coordinates: # Tuban - Land
+      Latitude: -6.895800
+      Longitude: 112.052000
+    MaxDistance: 35000
+    MinMagnitude: 3.5
+  - Coordinates: # Tuban - Ocean
+      Latitude: -6.895800
+      Longitude: 112.052000
+    MaxDistance: 90000
+    MinMagnitude: 4.0
+
+  - Coordinates: # Bangkalan (Madura) - Land
+      Latitude: -7.018600
+      Longitude: 112.740900
+    MaxDistance: 25000
+    MinMagnitude: 3.5
+  - Coordinates: # Bangkalan (Madura) - Ocean
+      Latitude: -7.018600
+      Longitude: 112.740900
+    MaxDistance: 90000
+    MinMagnitude: 4.0
+
+  - Coordinates: # Sampang (Madura) - Land
+      Latitude: -7.190700
+      Longitude: 113.239000
+    MaxDistance: 25000
+    MinMagnitude: 3.5
+  - Coordinates: # Sampang (Madura) - Ocean
+      Latitude: -7.190700
+      Longitude: 113.239000
+    MaxDistance: 90000
+    MinMagnitude: 4.0
+
+  - Coordinates: # Pamekasan (Madura) - Land
+      Latitude: -7.156800
+      Longitude: 113.475200
+    MaxDistance: 25000
+    MinMagnitude: 3.5
+  - Coordinates: # Pamekasan (Madura) - Ocean
+      Latitude: -7.156800
+      Longitude: 113.475200
+    MaxDistance: 90000
+    MinMagnitude: 4.0
+
+  - Coordinates: # Sumenep (Madura) - Land
+      Latitude: -7.004300
+      Longitude: 113.864700
+    MaxDistance: 30000
+    MinMagnitude: 3.5
+  - Coordinates: # Sumenep (Madura) - Ocean
+      Latitude: -7.004300
+      Longitude: 113.864700
+    MaxDistance: 100000
+    MinMagnitude: 4.0
+
+# Optional, a directory to save sent messages.
+#
+# If set, the bot will remember sent messages by saving them to a
+# file. Good for preventing duplicate messages on restart.
+#
+# If the directory does not exist, it will be created.
+MSG_MEMORY_DIR: ./data/sent_messages
