@@ -18,11 +18,12 @@ type RegionFilter struct {
 }
 
 var config struct {
-	Token         string         `yaml:"BOT_TOKEN"`
-	ChatID        int            `yaml:"CHAT_ID"`
-	MinMag        float64        `yaml:"MIN_MAG"`
-	RegionsFilter []RegionFilter `yaml:"REGIONS_FILTER"`
-	MsgMemoryDir  string         `yaml:"MSG_MEMORY_DIR"`
+	Token               string         `yaml:"BOT_TOKEN"`
+	ChatID              int            `yaml:"CHAT_ID"`
+	MinMag              float64        `yaml:"MIN_MAG"`
+	AlwaysReportTsunami bool           `yaml:"ALWAYS_REPORT_TSUNAMI"`
+	RegionsFilter       []RegionFilter `yaml:"REGIONS_FILTER"`
+	MsgMemoryDir        string         `yaml:"MSG_MEMORY_DIR"`
 }
 
 func ReadConfig(filename string) {

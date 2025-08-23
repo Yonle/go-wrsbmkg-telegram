@@ -28,12 +28,13 @@ listener:
 		case g := <-p.Gempa:
 			gempa := helper.ParseGempa(g)
 			currentEventID = gempa.EventID
+			forceAlertTsunami := len(gempa.WZAreas) > 0 && config.AlwaysReportTsunami
 
-			if config.MinMag >= gempa.Magnitude {
+			if config.MinMag >= gempa.Magnitude && !forceAlertTsunami {
 				continue listener
 			}
 
-			if !checkFilter(gempa.Coordinates[0], gempa.Coordinates[1], gempa.Magnitude) {
+			if !checkFilter(gempa.Coordinates[0], gempa.Coordinates[1], gempa.Magnitude) && !forceAlertTsunami {
 				continue listener
 			}
 

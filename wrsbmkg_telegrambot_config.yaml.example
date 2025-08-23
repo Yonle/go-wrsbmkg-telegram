@@ -8,6 +8,12 @@ CHAT_ID:
 # Uncomment the following to enable the filter
 #MIN_MAG: 0.00 # Global min mag
 
+# The following is only needed when REGIONS_FILTER or MIN_MAG is not empty.
+# It will make the bot to bypass REGIONS_FILTER and MIN_MAG on any kind of Tsunami Warning.
+#
+# NOTE: This will only bypass on warning. Realtime filtering is unaffected.
+ALWAYS_REPORT_TSUNAMI: true
+
 # Uncommenting the following will make the bot to only report
 # Earthquakes from the following areas & parameters.
 #
